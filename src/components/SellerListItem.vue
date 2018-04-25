@@ -25,7 +25,7 @@
         <img :src="sup.icon_url">
         {{sup.info}}
       </p>      
-    </div>
+      </div>
     </div>
   </div>
 </template>
@@ -35,7 +35,6 @@ export default {
   props:['item'],
   methods:{},
   mounted(){
-    console.log(this.item)
   }
 }
 

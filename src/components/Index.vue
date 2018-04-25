@@ -14,10 +14,7 @@
       <div class="title-bar">
         <span>附近商家</span>
       </div>
-      <seller-list-item v-for="item in indexList" 
-                        :key="item.name" 
-                        :item="item">        
-      </seller-list-item>
+      <seller-list-item v-for="item in indexList" :key="item.name" :item="item"></seller-list-item>   
     </div>
     <app-footer></app-footer>
   </div> 
@@ -28,8 +25,8 @@
 import Header from './Header'
 import Footer from './Footer'
 import TypeItem from './TypeItem'
-import axios from 'axios'
 import SellerListItem from './SellerListItem'
+import axios from 'axios'
 export default {
     name:'Index',
     data(){
@@ -40,7 +37,7 @@ export default {
           {pic:require('../assets/index/bannertemp.e8a6fa63.jpg'),id:3},
           {pic:require('../assets/index/bannertemp.e8a6fa63.jpg'),id:4},
         ],
-        indexList:''
+        indexList:'',
       }
       
     },
@@ -48,13 +45,11 @@ export default {
       "app-header":Header,
       "app-footer":Footer,
       TypeItem,
-      SellerListItem
-
+      SellerListItem,
     },
     methods:{
       _initIndexListData () {
       axios.get('/api/indexList').then(res => {
-        console.log(res)
         if (res.data.errno === 0) {
           this.indexList = res.data.data.data.poilist
         }
@@ -62,7 +57,7 @@ export default {
         console.log(err)
       })
     }
-    },
+    }, 
     created () {
     // 初始化列表数据
     this._initIndexListData()
@@ -109,5 +104,6 @@ export default {
   }
   .nearby {
     background: #fff;
+    margin-bottom: 80px;
   }
 </style>
