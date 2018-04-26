@@ -5,6 +5,7 @@ import App from './App'
 import MintUI from 'mint-ui'
 import 'mint-ui/lib/style.css'
 import router from './router'
+import '@/assets/alifont/iconfont.css'
 Vue.config.productionTip = false
 Vue.use(MintUI)
 /* eslint-disable no-new */

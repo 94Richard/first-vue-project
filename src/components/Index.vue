@@ -28,7 +28,7 @@ import TypeItem from './TypeItem'
 import SellerListItem from './SellerListItem'
 import axios from 'axios'
 export default {
-    name:'Index',
+    name:'Index',   
     data(){
       return{
         swipeData:[

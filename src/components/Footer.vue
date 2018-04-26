@@ -1,22 +1,22 @@
 <template>
-  <mt-tabbar v-model="selected" fixed>
-    <mt-tab-item id="tab1">
-        <i class='icon-sell'></i>
-        外卖    
-    </mt-tab-item>   
-    <mt-tab-item id="tab2">
-        <i class="icon-order"></i>
-        订单 
-    </mt-tab-item>
-    <mt-tab-item id="tab3">
-        <i class="icon-find"></i>
-        发现   
-    </mt-tab-item>
-    <mt-tab-item id="tab4">
-        <i class="icon-mine"></i>
-        我的      
-    </mt-tab-item>
-  </mt-tabbar>
+  <ul class="footer-bar">
+    <router-link class="index" to="/" tag="li" exact>
+      <i class="icon-sell"></i>
+      <span>首页</span>
+    </router-link>
+    <router-link class="find" to="/find" tag="li">
+      <i class="icon-find"></i>
+      <span>发现</span>
+    </router-link>
+    <router-link class="order" to="/order" tag="li">
+      <i class="icon-order"></i>
+      <span>订单</span>
+    </router-link>
+    <router-link class="mine" to="/mine" tag="li">
+      <i class="icon-mine"></i>
+      <span>我的</span>
+    </router-link>
+  </ul>
 </template>
 
 <script>
@@ -33,17 +33,31 @@ export default {
 </script>
 
 <style scoped>
-  .mint-tab-item.is-selected{
-    background: #fafafa;
+  .footer-bar{
+    position: fixed; 
+    bottom: 0; 
+    display: flex;
+    width: 100%;
+    height:50px;
+    background: #fcfcfc;
+    text-align: center    
   }
-  
-  i{
+  .footer-bar li{
+    display: block;
+    flex:1;
+    color:#999;
+  }
+  i{  
     display: block;
     width: 24px;
     height: 24px;
-    margin: 0 auto 5px;
+    margin: 3px auto;
     background: url('../assets/tab-bar/tab-icons.png') no-repeat;
     background-size: 25px
+  }
+  .footer-bar span{
+    display: block;
+    font-size:12px;
   }
   .icon-find {
     background-image: url('../assets/tab-bar/find.png')
@@ -57,16 +71,16 @@ export default {
   .icon-mine{
     background-position: 0 -125px;
   }
-  .is-selected .icon-find {
+  .router-link-active .icon-find {
     background-image: url('../assets/tab-bar/find1.png')
   }
-  .is-selected .icon-sell{
+  .router-link-active .icon-sell{
     background-position: 0 -50px;
   }
-  .is-selected .icon-order{
+  .router-link-active .icon-order{
     background-position: 0 0;
   }
-  .is-selected .icon-mine{
+  .router-link-active .icon-mine{
     background-position: 0 -100px;
   }
 </style>
